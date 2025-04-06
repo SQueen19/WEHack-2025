@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Present"
+        android:enabled="true"
+        android:id ="@+id/action_present"
+        app:showAsAction="ifRoom"
+        />
+    <item android:title="Past"
+        android:enabled="true"
+        android:id ="@+id/action_past"
+        app:showAsAction="ifRoom"
+        />
+    <item android:title="Future"
+        android:enabled="true"
+        android:id ="@+id/action_future"
+        app:showAsAction="ifRoom"
+        />
+
+</menu>
