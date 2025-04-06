@@ -10,6 +10,7 @@ import android.content.Intent
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+//import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,6 +20,7 @@ import kotlinx.coroutines.launch
 private const val API_URL =""
 
 class MainActivity : AppCompatActivity() {
+    var customer= intent.getParcelableExtra<account>("Account") as account
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,8 @@ class MainActivity : AppCompatActivity() {
             insets
 
         }
+        val person = intent.getParcelableExtra<account>("Account")
+
         val toggleFragment = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         //val recyclerView: RecyclerView = findViewById(R.
         val fragment2: Fragment = PastFragment()
@@ -43,6 +47,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.action_present -> fragment = fragment1
                 R.id.action_future -> fragment = fragment3
             }
+            val bundle = Bundle()
+            bundle.putParcelable("Account", person)
+            fragment.arguments = bundle
             fragmentManager.beginTransaction().replace(R.id.rlContainer, fragment).commit()
             true
         }
@@ -51,4 +58,5 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
 }

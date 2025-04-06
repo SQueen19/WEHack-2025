@@ -63,6 +63,8 @@ dependencies {
     implementation ("com.google.code.gson:gson:2.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation ("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
+    implementation(libs.androidx.room.common)
+    implementation(libs.androidx.room.ktx)
     annotationProcessor ("com.github.bumptech.glide:compiler:4.13.2")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
