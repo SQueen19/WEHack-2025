@@ -1,33 +1,29 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.android") version "2.0.21"
     id("kotlin-parcelize")
+
     id("kotlin-kapt")
     //id("com.google.gms.google-services") version "4.4.2" apply false
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.9.21"
+    id("org.jetbrains.kotlin.plugin.serialization")
     alias(libs.plugins.google.gms.google.services)
 }
 
 android {
     namespace = "com.example.wehack_finances"
-    compileSdk = 34
+    compileSdk = 35
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11 // Or higher if needed
-        targetCompatibility = JavaVersion.VERSION_11 // Or higher
-
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
-
-    // Enable desugaring if you're using Java 8+ features
-
     defaultConfig {
         applicationId = "com.example.wehack_finances"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-
     buildTypes {
         release {
             isDebuggable = false
@@ -41,45 +37,44 @@ android {
             isDebuggable = true
         }
     }
-
-
     kotlinOptions {
         jvmTarget = "11"
     }
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.11.0")
-    implementation ("org.jetbrains.kotlin:kotlin-stdlib:1.7.10")
-    implementation ("androidx.core:core-ktx:1.8.0")
-    implementation ("androidx.appcompat:appcompat:1.4.2")
-    implementation ("com.google.firebase:firebase-bom:33.12.0")
-    implementation ("com.google.android.material:material:1.6.1")
+    implementation(libs.androidx.core.ktx.v1120)
+    implementation(libs.androidx.appcompat.v161)
+    implementation(libs.material.v1110)
+    implementation (libs.kotlin.stdlib)
+    implementation (libs.androidx.core.ktx.v180)
+    implementation (libs.androidx.appcompat.v142)
+    implementation (libs.firebase.bom)
+    implementation (libs.material.v161)
     implementation(libs.firebase.database)
 
     //implementation ("com.google.firebase:firebase-auth")
     //implementation ("com.google.firebase:firebase-firestore")
-    implementation ("com.google.code.gson:gson:2.9.0")
-    implementation("androidx.room:room-runtime:2.6.1") // Or latest stable version
+    implementation (libs.gson.v290)
+    implementation(libs.androidx.room.runtime) // Or latest stable version
     //kapt("androidx.room:room-compiler:2.6.1") // For Kotlin Kapt (or annotationProcessor for Java)
-    implementation("androidx.room:room-ktx:2.6.1") // For Kotlin extensions (coroutines support)
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3") // Or latest stable version
-    implementation("androidx.security:security-crypto:1.1.0-alpha06")
-    implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation ("com.codepath.libraries:asynchttpclient:2.2.0")
-    implementation ("androidx.recyclerview:recyclerview:1.2.1")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2")
-    implementation ("androidx.recyclerview:recyclerview-selection:1.1.0")
-    implementation ("com.github.bumptech.glide:glide:4.13.2")
-    implementation ("com.google.code.gson:gson:2.9.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation ("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
+    implementation(libs.androidx.room.ktx.v270) // For Kotlin extensions (coroutines support)
+    implementation(libs.kotlinx.coroutines.android) // Or latest stable version
+    implementation(libs.androidx.security.crypto)
+    implementation (libs.androidx.constraintlayout)
+    implementation (libs.asynchttpclient)
+    implementation (libs.androidx.recyclerview)
+    implementation(libs.kotlinx.serialization.json.v122)
+    implementation (libs.androidx.recyclerview.selection)
+    implementation (libs.glide)
+    implementation (libs.google.gson)
+    implementation(libs.constraintlayout.v214)
+    implementation (libs.jetbrains.kotlinx.serialization.json)
     implementation(libs.androidx.room.common)
     implementation(libs.androidx.room.ktx)
-    annotationProcessor ("com.github.bumptech.glide:compiler:4.13.2")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    implementation(libs.androidx.room.runtime.android)
+    annotationProcessor (libs.compiler)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit.v115)
+    androidTestImplementation(libs.androidx.espresso.core.v351)
 }

@@ -21,6 +21,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [PastFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+@Suppress("DEPRECATION")
 class PastFragment : Fragment() {
    // private val sharedViewModel: SharedDataViewModel by activityViewModels()
     // TODO: Rename and change types of parameters
@@ -48,8 +49,10 @@ class PastFragment : Fragment() {
         total = view.findViewById<TextView>(R.id.textView6)
         total.text = "Total Earned: $${customer!!.earnings}"
         list = view.findViewById<TextView>(R.id.listTextView)
-        for(i in 0..customer!!.array.size) {
-            list.append("Day $i :  ${customer.array[i]}\n")
+            if(!customer.array.isEmpty()){
+            for(i in 0..customer!!.array.size) {
+                list.append("Day $i :  ${customer.array[i]}\n")
+            }
         }
         return view
     }
